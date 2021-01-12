@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <title>Potrawy Wigilijne</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link href="{{ url_for('static', path='/style.css') }}" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', path='/function.js') }}"
+    ></script>
+  </head>
+  <body onload="get_list('')">
+    <div class="jumbotron text-center">
+      <h1>Potrawy Wigilijne</h1>
+    </div>
+    <div class="dropdown">
+      <div class="btn-group dropright">
+        <button
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          id="dropdownMenuButton"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Wybierz kategorie potraw wigilijnych
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" onclick="get_list('Śledzie')">Śledzie</a>
+          <a class="dropdown-item" onclick="get_list('Ciasta')">Ciasta</a>
+          <a class="dropdown-item" onclick="get_list('Mięso')">Mięso</a>
+          <a class="dropdown-item" onclick="get_list('Sałatki')">Sałatki</a>
+          <a class="dropdown-item" onclick="get_list('')"
+            >Wszystkie kategorie</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <table class="table table-image">
+            <thead>
+              <tr>
+                <th scope="col">Zdjęcie</th>
+                <th scope="col">Nazwa</th>
+                <th scope="col">Przepis</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="w-25">
+                  <!-- <img
+                    s
+                    alt="Potrawa"
+                    width="300"
+                    height="200"
+                  /> -->
+                </td>
+                <td>cos</td>
+                <td>cos</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+  <!-- <script type="text/javascript">
+    console.log(getSomething());
+  </script> -->
+</html>

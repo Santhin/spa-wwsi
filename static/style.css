@@ -1,0 +1,15 @@
+.jumbotron text-center {
+  margin-bottom: 0;
+}
+.dropdown {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.container {
+  padding: 2rem 0rem;
+}
+
+h4 {
+  margin: 2rem 0rem 1rem;
+}
