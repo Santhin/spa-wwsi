@@ -15,9 +15,16 @@ logger = logging.getLogger(__name__)
 
 ##DB
 from motor.motor_asyncio import AsyncIOMotorClient
-MONGODB_URI = 'mongodb://piotrek:testtest@cluster0-shard-00-00.obezc.mongodb.net:27017,cluster0-shard-00-01.obezc.mongodb.net:27017,cluster0-shard-00-02.obezc.mongodb.net:27017/<dbname>?ssl=true&replicaSet=atlas-pijk1g-shard-0&authSource=admin&retryWrites=true&w=majority'
-MONGODB_DATABASE = 'PRZEPISY'
-MONGODB_COLLECTION = 'potrawy'
+import os
+from dotenv import load_dotenv, find_dotenv
+
+load_dotenv(find_dotenv())
+
+MONGODB_URI = os.environ.get("MONGODB_URI")
+MONGODB_DATABASE = os.environ.get("MONGODB_DATABASE")
+MONGODB_COLLECTION = os.environ.get("MONGODB_COLLECTION")
+
+
 import uuid
 from pydantic import BaseModel, Field
 
@@ -95,7 +102,3 @@ async def list_potrawy_all():
 async def load_page(request: Request):
         return templates.TemplateResponse('index.html', context={'request': request})
 
-if __name__ == "__main__":
-    uvicorn.run(
-        "main:app",
-        reload=True)
