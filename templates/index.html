@@ -17,8 +17,31 @@
       type="text/javascript"
       src="{{ url_for('static', path='/function.js') }}"
     ></script>
+    <script type="javascript">
+      (function () {
+          var styles;
+          var sLength;
+          var el;
+  
+          if (localStorage.getItem('styles') === null) {
+              return false;
+          }
+  
+          styles = JSON.parse(localStorage.getItem('styles'));
+          sLength = styles.length;
+  
+          for (var x = 0; x < sLength; ++x) {
+              el = document.createElement('link');
+              el.rel = 'stylesheet';
+              el.type = 'text/css';
+              el.href = styles[x];
+              document.getElementsByTagName('head')[0].appendChild(el);
+          }
+      }());
+  </script>
   </head>
   <body onload="get_list('')">
+    <script src="https://dcsaascdn.net/js/dc-sdk-1.0.5.min.js"></script>
     <div class="jumbotron text-center">
       <h1>Potrawy Wigilijne</h1>
     </div>
