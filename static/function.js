@@ -33,7 +33,7 @@ function get_list(kategoria) {
 
 
 var ShopAppInstance = new ShopApp(function(app) {
-  app.init(null, function(params, app) {
+  app.init({show: true}, function(params, app) {
       if (localStorage.getItem('styles') === null) {
           for(var x = 0; x < params.styles.length; ++x) {
               var el = document.createElement('link');
@@ -45,7 +45,7 @@ var ShopAppInstance = new ShopApp(function(app) {
       }
       localStorage.setItem('styles', JSON.stringify(params.styles));
 
-      app.show(null ,function () {
+      app.show({show: true} ,function () {
           app.adjustIframeSize();
       });
   }, function(errmsg, app) {
